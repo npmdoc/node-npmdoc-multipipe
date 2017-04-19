@@ -1,9 +1,14 @@
-# api documentation for  [multipipe (v1.0.2)](https://github.com/juliangruber/multipipe#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-multipipe.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-multipipe) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-multipipe.svg)](https://travis-ci.org/npmdoc/node-npmdoc-multipipe)
+# npmdoc-multipipe
+
+#### api documentation for  [multipipe (v1.0.2)](https://github.com/juliangruber/multipipe#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-multipipe.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-multipipe) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-multipipe.svg)](https://travis-ci.org/npmdoc/node-npmdoc-multipipe)
+
 #### pipe streams with centralized error handling
 
-[![NPM](https://nodei.co/npm/multipipe.png?downloads=true)](https://www.npmjs.com/package/multipipe)
+[![NPM](https://nodei.co/npm/multipipe.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/multipipe)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-multipipe/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-multipipe_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-multipipe/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-multipipe/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-multipipe/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-multipipe/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-multipipe/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-multipipe/build/screenCapture.npmPackageListing.svg)
 
@@ -38,13 +43,11 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "juliangruber",
-            "email": "julian@juliangruber.com"
+            "name": "juliangruber"
         }
     ],
     "name": "multipipe",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/juliangruber/multipipe.git"
@@ -55,16 +58,6 @@
     "version": "1.0.2"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module multipipe](#apidoc.module.multipipe)
-
-
-
-# <a name="apidoc.module.multipipe"></a>[module multipipe](#apidoc.module.multipipe)
 
 
 
