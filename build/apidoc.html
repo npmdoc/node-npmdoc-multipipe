@@ -61,12 +61,84 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.multipipe">module multipipe</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.multipipe.multipipe">
+            function <span class="apidocSignatureSpan"></span>multipipe
+            <span class="apidocSignatureSpan">(streams, opts, cb)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.multipipe" id="apidoc.module.multipipe">module multipipe</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.multipipe.multipipe" id="apidoc.element.multipipe.multipipe">
+        function <span class="apidocSignatureSpan"></span>multipipe
+        <span class="apidocSignatureSpan">(streams, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipe(streams, opts, cb){
+  if (!Array.isArray(streams)) {
+    streams = slice.call(arguments);
+    opts = null;
+    cb = null;
+  }
+
+  var lastArg = streams[streams.length - 1];
+  if (&#x27;function&#x27; == typeof lastArg) {
+    cb = streams.splice(-1)[0];
+    lastArg = streams[streams.length - 1];
+  }
+  if (&#x27;object&#x27; == typeof lastArg &#x26;&#x26; typeof lastArg.pipe != &#x27;function&#x27;) {
+    opts = streams.splice(-1)[0];
+  }
+  var first = streams[0];
+  var last = streams[streams.length - 1];
+  var ret;
+  opts = objectAssign({}, defaultOpts, opts)
+
+  if (!first) {
+    if (cb) process.nextTick(cb);
+    return new PassThrough(opts);
+  }
+
+  if (first.writable &#x26;&#x26; last.readable) ret = duplexer(opts, first, last);
+  else if (streams.length == 1) ret = new Readable(opts).wrap(streams[0]);
+  else if (first.writable) ret = first;
+  else if (last.readable) ret = last;
+  else ret = new PassThrough(opts);
+
+  streams.forEach(function(stream, i){
+    var next = streams[i+1];
+    if (next) stream.pipe(next);
+    if (stream != ret) stream.on(&#x27;error&#x27;, ret.emit.bind(ret, &#x27;error&#x27;));
+  });
+
+  if (cb) {
+    var ended = false;
+    ret.on(&#x27;error&#x27;, end);
+    last.on(&#x27;finish&#x27;, function(){ end() });
+    last.on(&#x27;close&#x27;, function(){ end() });
+    function end(err){
+      if (ended) return;
+      ended = true;
+      cb(err);
+    }
+  }
+
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
